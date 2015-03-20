@@ -1,18 +1,16 @@
 
 
-<p><%= link_to "Add a new Deep Thought", new_entry_path %></p>
+<p><%= link_to "Add a new Deep Thought", new_entry_path, class: "text-danger" %></p>
 
 <h4>My thoughts so far...</h4>
 
 <ul>
-  <% @entries.each do |entry| %>
+  <% @entries.order(title: :asc).each do |entry| %>
     <li>
       <%= link_to entry.title, entry_path(entry) %>
       <small><%= link_to "Edit", edit_entry_path(entry) %></small>
       <small>
-        <%= link_to "Delete", entry_path(entry),
-                                    :data => {:confirm => "Are you sure?",
-                                    :method => "delete"} %>
+        <%= link_to "Delete", entry_path(entry), :data => {:confirm => "Are you sure?", :method => "delete"} %>
       </small>
     </li>
   <% end %>

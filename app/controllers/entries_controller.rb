@@ -33,7 +33,7 @@ class EntriesController < ApplicationController
 
   def update
     @entry = Entry.find(params[:id])
-    @entry.update_attributes(lesson_params)
+    @entry.update_attributes(entry_params)
     flash[:notice] = "Entry successfully updated."
     redirect_to entries_path
   end
@@ -48,7 +48,7 @@ class EntriesController < ApplicationController
   private
 
 
-  def entries_params
+  def entry_params
     params.require(:entry).permit(:title, :body)
   end
 end
