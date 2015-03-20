@@ -1,3 +1,4 @@
+<%= link_to("Home", entries_path, class: "btn") %>
 <div class=page-header>
   <h1 class="text-success"><%= @entry.title %></h1>
 </div>
@@ -9,5 +10,13 @@
   <div class="col-sm-2"></div>
 </div>
 
+<%= link_to("Add comment", new_entry_comment_path(@entry), class: "btn") %>
 
-<%= link_to("Home", entries_path, class: "btn") %>
+<% if @entry.comments.count %>
+  <% @entry.comments.each do |comment| %>
+    <div class="well">
+      <p><%= comment.body %></p>
+      <%= link_to("Modify comment", edit_entry_comment_path(@entry, comment), class: "btn") %>
+    </div>
+  <% end %>
+<% end %>

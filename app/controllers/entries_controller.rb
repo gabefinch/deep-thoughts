@@ -45,10 +45,10 @@ class EntriesController < ApplicationController
     redirect_to entries_path
   end
 
-  private
-
-
+# PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE
+private
   def entry_params
     params.require(:entry).permit(:title, :body)
   end
+
 end
