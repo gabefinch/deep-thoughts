@@ -1,0 +1,20 @@
+<h1>Hello World</h1>
+
+<p><%= link_to "Add a new Deep Thought", new_entry_path %></p>
+
+<h1>Deep Thoughts</h1>
+
+<ul>
+  <% @entries.each do |entry| %>
+    <li>
+      <%= link_to entry.title, entry_path(entry) %>
+      <small><%= link_to "Edit", edit_entry_path(entry) %></small>
+      <small>
+        <%= link_to "Delete", entry_path(entry),
+                                    :data => {:confirm => "Are you sure?",
+                                    :method => "delete"} %>
+      </small>
+    </li>
+  <% end %>
+
+</ul>
