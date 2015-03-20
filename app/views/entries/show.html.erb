@@ -9,14 +9,17 @@
   </div>
   <div class="col-sm-2"></div>
 </div>
-
+<hr>
 <%= link_to("Add comment", new_entry_comment_path(@entry), class: "btn") %>
-
-<% if @entry.comments.count %>
+<% if @entry.comments.count != 0 %>
+  <hr>
+  <h4>Comments:</h4>
   <% @entry.comments.each do |comment| %>
+    <hr>
     <div class="well">
       <p><%= comment.body %></p>
-      <%= link_to("Modify comment", edit_entry_comment_path(@entry, comment), class: "btn") %>
+      <%= link_to("Modify comment", edit_entry_comment_path(@entry, comment), class: "btn btn-xs") %>
+      <%= link_to("Delete comment", entry_comment_path(@entry, comment),:data => {:confirm => "Are you sure?", :method => "delete"}, class: "btn btn-xs") %>
     </div>
   <% end %>
 <% end %>

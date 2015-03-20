@@ -8,9 +8,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.entry_id = params[:entry_id]
     if @comment.save
       flash[:notice] = "Comment successfully added."
-      redirect_to entry_path(@comment.entry)
+      redirect_to entry_path(params[:entry_id])
     else
       render :new
     end
@@ -18,6 +19,7 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    @entry = Entry.find(params[:entry_id])
     render :edit
   end
 
@@ -25,14 +27,14 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.update_attributes(comment_params)
     flash[:notice] = "Comment successfully updated."
-    redirect_to entry_path(@comment.entry)
+    redirect_to entry_path(params[:entry_id])
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:notice] = "Comment successfully deleted."
-    redirect_to entry_path(@comment.entry)
+    redirect_to entry_path(params[:entry_id])
   end
 
 # PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE
