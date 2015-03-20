@@ -12,7 +12,7 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(lesson_params)
+    @entry = Entry.new(entry_params)
     if @entry.save
       flash[:notice] = "Entry successfully added."
       redirect_to entries_path()
