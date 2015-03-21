@@ -1,28 +1,26 @@
-== README
+# Deep Thoughts
+This is a Rails app which allows one to create deep thoughts and to comment on existing deep thoughts.
+Partial test coverage with Rspec and Capybara integration tests.
+Built in around 6 hours.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
+Rails
 
-Things you may want to cover:
+## Setup Instructions:
 
-* Ruby version
+Clone repository.
+```
+$ rake db:create db:migrate db:seed
+```
+```
+$ rails s
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Bug Reports:
+```
+None known
+```
+### Author:
+Gabe Finch
+#### License
+MIT
