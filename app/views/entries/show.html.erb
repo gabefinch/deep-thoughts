@@ -1,3 +1,5 @@
+<% content_for(:title, @entry.title) %>
+
 <%= link_to("Home", entries_path, class: "btn") %>
 <div class=page-header>
   <h1 class="text-success"><%= @entry.title %></h1>

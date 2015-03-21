@@ -1,3 +1,5 @@
+<%= render "layouts/errors", :object => @entry %>
+
 <%=form_for(@entry, html: {class: "form-group"}) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, class: "form-control" %>
