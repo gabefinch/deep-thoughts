@@ -1,7 +1,9 @@
 # Deep Thoughts
 This is a Rails app which allows one to create deep thoughts and to comment on existing deep thoughts.
-Partial test coverage with Rspec and Capybara integration tests.
+Partial test coverage with Rspec and Capybara integration tests.  Added Devise user authentication the next week.
 Built in around 6 hours.
+
+Try it [here](https://murmuring-savannah-5593.herokuapp.com/)
 
 ## Requirements
 Rails
