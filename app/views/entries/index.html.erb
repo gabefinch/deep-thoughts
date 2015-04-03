@@ -5,9 +5,9 @@
 
 <h4 class="handwritten">These are our thoughts so far...</h4>
 
-<ul class="list-unstyled">
+<ul class="list-group">
   <% @entries.order(title: :asc).each do |entry| %>
-    <li>
+    <li class="list-group-item">
       <h3><span class="handwritten"><%= link_to entry.title, entry_path(entry) %></span></h3>
       <sub><small>
         <p>Posted <%= time_ago_in_words(entry.created_at)%> ago by <%= entry.user.email %></p>

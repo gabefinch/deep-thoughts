@@ -3,15 +3,21 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @entry = Entry.find(params[:entry_id])
-    render :new
   end
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.entry_id = params[:entry_id]
+    entry = Entry.find(params[:entry_id])
+    @comment.entry = entry
+    @comment.user = current_user
     if @comment.save
-      flash[:notice] = "Comment successfully added."
-      redirect_to entry_path(params[:entry_id])
+      respond_to do |format|
+        format.html do
+          redirect_to entry_path(entry)
+          flash[:notice] = "Comment successfully added."
+        end
+        format.js
+      end
     else
       @entry = Entry.find(params[:entry_id])
       render :new

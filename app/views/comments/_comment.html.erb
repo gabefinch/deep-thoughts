@@ -1,0 +1,12 @@
+<div class="well">
+  <h4 class="handwritten text-muted"><%= comment.body %></h4>
+  <sub><small>
+    <p>Posted <%= time_ago_in_words(comment.created_at)%> ago by <%= comment.user.email %></p>
+  </small></sub>
+  <% if comment.user == current_user %>
+    <sub><small>
+      <p><%= link_to "Edit", edit_entry_comment_path(comment.entry, comment) %></p>
+      <p><%= link_to "Delete", entry_comment_path(comment.entry, comment), :data => {:confirm => "Are you sure?", :method => "delete"} %></p>
+    </small></sub>
+  <% end%>
+</div>

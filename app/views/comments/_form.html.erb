@@ -1,9 +1,9 @@
 <%= render "layouts/errors", :object => @comment %>
 
-<%=form_for([@entry,@comment], html: {class: "form-group"}) do |f| %>
+<%=form_for([@entry,@comment], class: "form-group", remote: true ) do |f| %>
   <%= f.label :body %>
   <br>
-  <%= f.text_area(:body, rows: "12", cols: "40") %>
+  <%= f.text_area(:body, rows: "12", cols: "40", class: "handwritten") %>
   <br>
   <%= f.submit "Store comment", class: "btn btn-primary"  %>
 <% end %>
