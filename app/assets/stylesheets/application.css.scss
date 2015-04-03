@@ -17,6 +17,10 @@
 @import "bootswatch/journal/variables";
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Kalam:400,700);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700);
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tooltip, .popover {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
 .handwritten {
   font-family: 'Kalam', cursive;
 }
