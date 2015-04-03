@@ -1,27 +1,29 @@
 <% content_for(:title, @entry.title) %>
 
-<%= link_to("Home", entries_path, class: "btn") %>
+<%= link_to "Home", entries_path, class: "btn btn-primary" %>
 <div class=page-header>
-  <h1 class="text-success"><%= @entry.title %></h1>
+  <h1 class="text-success"><span class="handwritten"><%= @entry.title %><span></h1>
 </div>
 <div class="row">
   <div class="col-sm-2"></div>
   <div class="col-sm-8">
-    <h3><%= @entry.body %></h3>
+    <h3><span class="handwritten"><%= @entry.body %></span></h3>
   </div>
   <div class="col-sm-2"></div>
 </div>
 <hr>
-<%= link_to("Add comment", new_entry_comment_path(@entry), class: "btn") %>
-<% if @entry.comments.count != 0 %>
-  <hr>
-  <h4>Comments:</h4>
-  <% @entry.comments.each do |comment| %>
+<% if current_user %>
+  <%= link_to("Add comment", new_entry_comment_path(@entry), class: "btn btn-primary") %>
+  <% if @entry.comments.count != 0 %>
     <hr>
-    <div class="well">
-      <p><%= comment.body %></p>
-      <%= link_to("Modify comment", edit_entry_comment_path(@entry, comment), class: "btn btn-xs") %>
-      <%= link_to("Delete comment", entry_comment_path(@entry, comment),:data => {:confirm => "Are you sure?", :method => "delete"}, class: "btn btn-xs") %>
-    </div>
+    <h4>Comments:</h4>
+    <% @entry.comments.each do |comment| %>
+      <hr>
+      <div class="well">
+        <p><%= comment.body %></p>
+        <%= link_to("Modify comment", edit_entry_comment_path(@entry, comment), class: "btn btn-xs btn-primary") %>
+        <%= link_to("Delete comment", entry_comment_path(@entry, comment),:data => {:confirm => "Are you sure?", :method => "delete"}, class: "btn btn-xs btn-primary") %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>

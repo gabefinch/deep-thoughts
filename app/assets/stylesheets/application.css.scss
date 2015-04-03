@@ -12,6 +12,11 @@
  *
  *= require_self
  */
+
 @import "bootstrap-sprockets";
+@import "bootswatch/journal/variables";
 @import "bootstrap";
-@import "_bootswatch.scss";
+@import url(https://fonts.googleapis.com/css?family=Kalam:400,700);
+.handwritten {
+  font-family: 'Kalam', cursive;
+}

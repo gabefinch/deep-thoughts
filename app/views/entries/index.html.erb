@@ -1,17 +1,22 @@
 <% content_for(:title, "Deep Thoughts") %>
+<% if current_user %>
+  <p><%= link_to "Add a new Deep Thought", new_entry_path, class: "text-success btn btn-primary btn-xs" %></p>
+<% end %>
 
-<p><%= link_to "Add a new Deep Thought", new_entry_path, class: "text-danger" %></p>
-
-<h4>My thoughts so far...</h4>
+<h4 class="handwritten">These are our thoughts so far...</h4>
 
 <ul>
   <% @entries.order(title: :asc).each do |entry| %>
     <li>
-      <%= link_to entry.title, entry_path(entry) %>
-      <small><%= link_to "Edit", edit_entry_path(entry) %></small>
-      <small>
-        <%= link_to "Delete", entry_path(entry), :data => {:confirm => "Are you sure?", :method => "delete"} %>
-      </small>
+      <span class="handwritten"><%= link_to entry.title, entry_path(entry) %></span>
+      <% if current_user%>
+        <sub><small>
+          <%= link_to "Edit", edit_entry_path(entry) %>
+        </small></sub>
+        <sub><small>
+          <%= link_to "Delete", entry_path(entry), :data => {:confirm => "Are you sure?", :method => "delete"} %>
+        </small></sub>
+      <% end%>
     </li>
   <% end %>
 
