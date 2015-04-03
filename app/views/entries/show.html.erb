@@ -21,8 +21,10 @@
       <hr>
       <div class="well">
         <p><%= comment.body %></p>
+        <% if comment.user == current_user %>
         <%= link_to("Modify comment", edit_entry_comment_path(@entry, comment), class: "btn btn-xs btn-primary") %>
         <%= link_to("Delete comment", entry_comment_path(@entry, comment),:data => {:confirm => "Are you sure?", :method => "delete"}, class: "btn btn-xs btn-primary") %>
+        <% end %>
       </div>
     <% end %>
   <% end %>

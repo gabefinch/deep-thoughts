@@ -5,16 +5,17 @@
 
 <h4 class="handwritten">These are our thoughts so far...</h4>
 
-<ul>
+<ul class="list-unstyled">
   <% @entries.order(title: :asc).each do |entry| %>
     <li>
-      <span class="handwritten"><%= link_to entry.title, entry_path(entry) %></span>
-      <% if current_user%>
+      <h3><span class="handwritten"><%= link_to entry.title, entry_path(entry) %></span></h3>
+      <sub><small>
+        <p>Posted <%= time_ago_in_words(entry.created_at)%> ago by <%= entry.user.email %></p>
+      </small></sub>
+      <% if entry.user == current_user %>
         <sub><small>
-          <%= link_to "Edit", edit_entry_path(entry) %>
-        </small></sub>
-        <sub><small>
-          <%= link_to "Delete", entry_path(entry), :data => {:confirm => "Are you sure?", :method => "delete"} %>
+          <p><%= link_to "Edit", edit_entry_path(entry) %></p>
+          <p><%= link_to "Delete", entry_path(entry), :data => {:confirm => "Are you sure?", :method => "delete"} %></p>
         </small></sub>
       <% end%>
     </li>
