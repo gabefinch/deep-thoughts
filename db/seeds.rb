@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = User.create(email: 'example@example.com', password: 'password')
+user = User.create(email: 'example@example.com', password: 'password', phone: 5032084223)
 user.entries = Entry.create([
   {title: "Death", body: "My young brother asked me what happens after we die. I told him we get buried under a bunch of dirt and worms eat our bodies. I guess I should have told him the truth--that most of us go to Hell and burn eternally--but I didn't want to upset him."},
   {title: "Painting", body: "I don't know about you, but I enjoy watching paint dry. I imagine that the wet paint is a big freshwater lake that is the only source of water for some tiny cities by the lake. As the lake gets drier, the population gets more desperate, and sometimes there are water riots. Once there was a big fire and everyone died."},

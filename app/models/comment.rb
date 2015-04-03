@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
   belongs_to :entry
   belongs_to :user
   validates :body, :presence => true
-  before_create :send_sms
+  after_save :send_sms
 
 private
   begin
@@ -13,7 +13,7 @@ private
       :user => ENV['TWILIO_ACCOUNT_SID'],
       :password => ENV['TWILIO_AUTH_TOKEN'],
       :payload => {
-        :Body => 'Your post' +  self.entry + 'was commented on by' + self.user.email + '.',
+        :Body => 'Your post was commented on.',
         :From => ENV['TWILIO_PHONE_NUM'],
         :To => self.entry.user.phone
         }

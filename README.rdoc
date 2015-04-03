@@ -14,6 +14,14 @@ Clone repository.
 ```
 $ rake db:create db:migrate db:seed
 ```
+Within project folder create an .env file with your Twilio credentials
+```
+TWILIO_ACCOUNT_SID=XXXXXXXXXXXX
+TWILIO_AUTH_TOKEN=XXXXXXXXXXXXX
+TWILIO_PHONE_NUM=XXXXXXXXXXXXX
+```
+
+
 ```
 $ rails s
 ```

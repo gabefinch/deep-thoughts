@@ -15,6 +15,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootstrap-form'
 gem 'bootswatch-rails'
 gem 'devise'
+gem 'rest-client'
 
 group :development do
   gem 'byebug'
