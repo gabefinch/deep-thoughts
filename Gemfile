@@ -25,6 +25,7 @@ end
 
 group :test, :development do
   gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -34,4 +35,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'vcr'
+  gem 'webmock'
 end
