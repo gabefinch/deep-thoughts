@@ -2,8 +2,16 @@ require 'rails_helper'
 
 describe "adding comment" do
   it "adds comment" do
-    test_entry = Entry.create(title: "Muffins", body: "I love muffins.")
+    user = FactoryGirl.create(:user)
+    test_entry = FactoryGirl.create(:entry)
+    test_entry.user = user
+    visit '/'
+    click_on 'Login'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_on 'Login'
     visit entry_path(test_entry)
+    save_and_open_page
     click_on 'Add comment'
     fill_in 'Body', with: 'I prefer donuts'
     click_on 'Store comment'
